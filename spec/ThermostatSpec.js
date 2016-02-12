@@ -26,4 +26,12 @@ describe('Thermostat', function(){
     expect(thermostat.temperature).toEqual(10);
   });
 
+  it('max temp is 25 degrees with powersave mode on', function() {
+    thermostat.powerSave = true;
+    for (var i = 1; i < 15; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.temperature).toEqual(25);
+  });
+
 });

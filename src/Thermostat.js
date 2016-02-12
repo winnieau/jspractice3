@@ -1,10 +1,17 @@
 function Thermostat(){
   this.temperature = 20;
   this.min = 10;
+  this.powerSave = true;
 }
 
 Thermostat.prototype.up = function () {
-  this.temperature += 1;
+  if (this.powerSave === true) {
+    if (this.temperature < 25) {
+      this.temperature += 1;
+    }
+  } else {
+    this.temperature += 1;
+  }
 };
 
 Thermostat.prototype.down = function () {
