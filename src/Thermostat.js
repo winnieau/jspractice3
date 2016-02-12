@@ -2,6 +2,7 @@ function Thermostat(){
   this.temperature = 20;
   this.min = 10;
   this.powerSave = true;
+  this.colour = 'yellow';
 }
 
 Thermostat.prototype.up = function () {
@@ -16,14 +17,27 @@ Thermostat.prototype.up = function () {
   } else {
     this.temperature += 1;
   }
+  this.display();
 };
 
 Thermostat.prototype.down = function () {
   if (this.temperature > 10) {
     this.temperature -= 1;
   }
+  this.display();
 };
 
 Thermostat.prototype.reset = function () {
   this.temperature = 20;
+  this.display();
 };
+
+Thermostat.prototype.display = function(){
+  if(this.temperature < 18) {
+    this.colour = 'green';
+  } else if (this.temperature < 25) {
+    this.colour = 'yellow';
+  } else {
+    this.colour = 'red';
+  }
+}

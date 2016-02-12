@@ -52,4 +52,16 @@ describe('Thermostat', function(){
     expect(thermostat.temperature).toEqual(20);
   });
 
+  it('thermostat colour should be green if <18, yellow if <25 and otherwise red', function(){
+    expect(thermostat.colour).toEqual('yellow');
+    for (var i = 1; i < 4; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.colour).toEqual('green');
+    for (i = 1; i < 9; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.colour).toEqual('red');
+  });
+
 });
