@@ -40,4 +40,12 @@ Thermostat.prototype.display = function(){
   } else {
     this.colour = 'red';
   }
-}
+};
+
+Thermostat.prototype.powerSaveOn = function () {
+  this.powerSave = true;
+};
+
+Thermostat.prototype.powerSaveOff = function () {
+  this.powerSave = false;
+};
